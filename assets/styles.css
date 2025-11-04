@@ -69,6 +69,48 @@ body {
   animation-delay: 0.4s;
 }
 
+/* ======== Mobile title animation only ======== */
+@media (max-width: 700px) {
+  .site-header h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 36px; /* або підбери, щоб не рвало в webview */
+    line-height: 1.1;
+  }
+
+  .site-header h1 span {
+    display: block;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .site-header h1 span:first-child {
+    transform: translateX(-80%);
+    animation: slideInLeft 0.5s ease-out 0.1s forwards;
+  }
+
+  .site-header h1 span:last-child {
+    transform: translateX(80%);
+    animation: slideInRight 0.5s ease-out 0.2s forwards;
+  }
+
+  @keyframes slideInLeft {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
 @keyframes slideIn {
   to {
     transform: translateX(0);

@@ -1,0 +1,14 @@
+:root{--accent:#b66b4a;--bg:#f7f7f7;--text:#222}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial,sans-serif;color:var(--text);background:var(--bg);margin:0;line-height:1.4}
+.container{max-width:1000px;margin:0 auto;padding:24px}
+.site-header{background:#fff;padding:32px 0;border-bottom:1px solid #e6e6e6;text-align:center}
+.site-header h1{margin:0;font-size:20px}
+.lead{color:#666;margin-top:8px}
+.btn{display:inline-block;margin-top:12px;padding:10px 16px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
+.cards article{background:#fff;padding:16px;border-radius:8px;border:1px solid #eaeaea}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:12px}
+.grid img{width:100%;height:150px;object-fit:cover;border-radius:6px}
+form input, form select{width:100%;padding:8px;margin:6px 0;border:1px solid #ddd;border-radius:6px}
+.site-footer{padding:20px 0;text-align:center;color:#777;border-top:1px solid #eaeaea;margin-top:24px;background:#fff}

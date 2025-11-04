@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Мікроцемент • Наливні • Полімер • Сірий бетон — Одеса</title>
+  <meta name="description" content="Мікроцемент, епоксидні та полімерні покриття, сірий бетон для комерції. Якісні підлоги в Одесі — консультація, розрахунок, гарантія." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Сучасні підлоги: мікроцемент • епоксид • полімер • сірий бетон</h1>
+      <p class="lead">Одеса — консультація, виїзд, замір, гарантія якості</p>
+      <a href="#contact" class="btn">Замовити консультацію</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="services" class="cards">
+      <article>
+        <h2>Мікроцемент</h2>
+        <p>Безшовне, вологостійке, стильне покриття для житла та комерції.</p>
+      </article>
+
+      <article>
+        <h2>Наливні (епоксидні, флок)</h2>
+        <p>Міцні декоративні підлоги з антиковзанням — кафе, офіси, шоуруми.</p>
+      </article>
+
+      <article>
+        <h2>Полімерні покриття</h2>
+        <p>Висока міцність для складів, виробництв і паркінгів.</p>
+      </article>
+
+      <article>
+        <h2>Сірий бетон для комерції та ТРЦ</h2>
+        <p>Ідеальний для торгових центрів, павільйонів і промислових зон — зносостійкий і мінімалістичний.</p>
+      </article>
+    </section>
+
+    <section id="gallery">
+      <h2>Галерея робіт</h2>
+      <div class="grid">
+        <img src="images/work1.jpg" alt="Приклад роботи 1">
+        <img src="images/work2.jpg" alt="Приклад роботи 2">
+        <img src="images/work3.jpg" alt="Приклад роботи 3">
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>Чому обирають нас</h2>
+      <ul>
+        <li>Гарантія якості</li>
+        <li>Досвідчені майстри</li>
+        <li>Працюємо по Одесі та області</li>
+        <li>Доступні ціни та розрахунок по площі</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Зв'язок</h2>
+      <p>Телефон: <a href="tel:+380XXXXXXXXX">+380 XX XXX XXXX</a></p>
+      <p>Telegram / Viber: @yourtelegram</p>
+
+      <!-- Простейшая форма (работает через mailto). Для профессиональной формы см. раздел "Форма заявки" -->
+      <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+        <label>Ім'я<br><input name="name" required></label><br>
+        <label>Телефон<br><input name="phone" required></label><br>
+        <label>Послуга<br>
+          <select name="service">
+            <option>Мікроцемент</option>
+            <option>Наливні / Епоксидні</option>
+            <option>Полімер</option>
+            <option>Сірий бетон для комерції</option>
+          </select>
+        </label><br>
+        <label>Площа (м²)<br><input name="area" type="number"></label><br>
+        <button type="submit" class="btn">Відправити</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Сучасні підлоги — Одеса</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

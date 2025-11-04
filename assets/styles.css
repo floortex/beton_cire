@@ -39,6 +39,51 @@ body {
   letter-spacing: 0.3px;
 }
 
+/* 🔹 Анімований заголовок */
+.animated-title {
+  position: relative;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  height: 60px;
+  margin-bottom: 8px;
+}
+
+.animated-title .word {
+  position: relative;
+  opacity: 0;
+  animation: slideIn 1s forwards;
+}
+
+.animated-title .left {
+  transform: translateX(-100%);
+  margin-right: 8px;
+  animation-delay: 0.2s;
+}
+
+.animated-title .right {
+  transform: translateX(100%);
+  animation-delay: 0.4s;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* трохи менший текст для підзаголовку */
+.lead {
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 12px;
+  color: #555;
+}
+
 .lead {
   color: #666;
   margin-top: 8px;

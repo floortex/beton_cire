@@ -220,3 +220,41 @@ form select {
 #about h2, #contact h2 {
   color: #d0b36e; /* акцентний колір, наприклад золото або бетонний */
 }
+/* Уніфікуємо стиль для кнопок-посилань і кнопок форм */
+.btn,
+a.btn,
+button.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 0.18s ease;
+}
+
+/* Скидаємо дефолтні стилі браузера для button */
+button.btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Ховер/фокус */
+.btn:hover,
+button.btn:hover,
+a.btn:hover {
+  background: #a35f42; /* трохи темніший */
+}
+
+.btn:focus,
+button.btn:focus,
+a.btn:focus {
+  outline: 2px solid rgba(182,107,74,0.18);
+  outline-offset: 2px;
+}

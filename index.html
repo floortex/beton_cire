@@ -6,11 +6,115 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <title>Мікроцемент • Наливні • Полімер • Бетон Ciré — Одеса</title>
   <meta name="description" content="Мікроцемент, епоксидні та полімерні покриття, сірий бетон для комерції. Якісні підлоги в Одесі — консультація, розрахунок, гарантія." />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css" />
+
   <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+      margin: 0;
+      background-color: #1a1a1a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* --- Навігація --- */
+    nav {
+      background: rgba(20,20,20,0.9);
+      backdrop-filter: blur(6px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b66b4a;
+    }
+
+    /* --- Мобільна навігація --- */
+    .burger {
+      display: none;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      width: 26px;
+      height: 20px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .burger span {
+      display: block;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(20,20,20,0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .burger {
+        display: flex;
+      }
+    }
+
+    /* --- Шапка сайту --- */
+    .site-header {
+      background: linear-gradient(180deg, #222, #444);
+      padding: 120px 0 60px;
+      text-align: center;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .site-header img {
+      width: 180px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
     /* Анімований заголовок */
     .title {
-      font-family: "Montserrat", sans-serif;
       font-weight: 600;
       font-size: 64px;
       color: #fff;
@@ -29,22 +133,13 @@
       animation: fadeUp 1s forwards;
     }
 
-    .title .line1 {
-      animation-delay: 0.2s;
-    }
-
-    .title .line2 {
-      animation-delay: 0.6s;
-    }
+    .title .line1 { animation-delay: 0.2s; }
+    .title .line2 { animation-delay: 0.6s; }
 
     @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- Мобільна версія --- */
     @media (max-width: 768px) {
       .title {
         flex-direction: column;
@@ -63,151 +158,111 @@
       }
 
       @keyframes slideLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-100%);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
+        from { opacity: 0; transform: translateX(-100%); }
+        to { opacity: 1; transform: translateX(0); }
       }
 
       @keyframes slideRight {
-        from {
-          opacity: 0;
-          transform: translateX(100%);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
+        from { opacity: 0; transform: translateX(100%); }
+        to { opacity: 1; transform: translateX(0); }
       }
     }
 
-    /* Трохи стилів для логотипу та хедера */
-    .site-header {
-      background: linear-gradient(180deg, #222, #444);
-      padding: 60px 0;
-      text-align: center;
-      border-bottom: 1px solid #e6e6e6;
-    }
+    .lead { color: #ddd; margin-top: 8px; }
 
-    .site-header img {
-      width: 180px;
-      max-width: 80%;
-      height: auto;
-      margin-bottom: 20px;
-    }
-
-    .lead {
-      color: #ddd;
-      margin-top: 8px;
-      font-family: "Montserrat", sans-serif;
-    }
+    main { margin-top: 40px; }
   </style>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="container" style="text-align:center;">
-    <img src="assets/logo.svg"
-         alt="FloorTex logo">
-
-    <h1 class="title">
-      <span class="line1">Сучасні</span>
-      <span class="line2">покриття</span>
-    </h1>
-
-    <p class="lead">Мікроцемент • Епоксид • Полімер • Бетон Ciré</p>
-    <a href="#contact" class="btn">Замовити консультацію</a>
-  </div>
-</header>
-
-<main class="container">
-  <section id="services" class="cards">
-    <article>
-      <h2>Мікроцемент</h2>
-      <p>Безшовне, вологостійке, стильне покриття для житла та комерції.</p>
-    </article>
-
-    <article>
-      <h2>Наливні (епоксидні, флок)</h2>
-      <p>Міцні декоративні підлоги з антиковзанням — кафе, офіси, шоуруми.</p>
-    </article>
-
-    <article>
-      <h2>Полімерні покриття</h2>
-      <p>Висока міцність для складів, виробництв і паркінгів.</p>
-    </article>
-
-    <article>
-      <h2>Бетон Ciré для комерції та ТРЦ</h2>
-      <p>Ідеальний для торгових центрів, павільйонів і промислових зон — зносостійкий і мінімалістичний.</p>
-    </article>
-  </section>
-
-  <section id="gallery">
-    <h2>Галерея робіт</h2>
-    <div class="grid">
-      <img src="assets/463190511_1443040396339179_8907700245724643931_n.jpg" alt="Приклад роботи 1">
-      <img src="assets/473615783_18147920125361447_62412069840918330_n.jpg" alt="Приклад роботи 2">
-      <img src="assets/Snapinsta_app_404920618_18103514179361447_1942269043429428094_n.jpg" alt="Приклад роботи 3">
+  <!-- Навігаційна панель -->
+  <nav>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
-  </section>
-
-  <section id="about">
-    <h2>Чому обирають нас</h2>
-    <ul>
-      <li>Гарантія якості</li>
-      <li>Досвідчені майстри</li>
-      <li>Працюємо по Одесі та області</li>
-      <li>Доступні ціни та розрахунок по площі</li>
+    <ul id="navLinks">
+      <li><a href="#services">Види покриттів</a></li>
+      <li><a href="#gallery">Галерея</a></li>
+      <li><a href="#about">Про нас</a></li>
+      <li><a href="#contact">Контакти</a></li>
     </ul>
-  </section>
+  </nav>
 
-  <section id="contact">
-    <h2>Зв'язок</h2>
-    <p>Телефон: <a href="tel:+380502022702">+380 50 202 2702</a></p>
+  <header class="site-header">
+    <div class="container" style="text-align:center;">
+      <img src="assets/logo.svg" alt="FloorTex logo">
 
-    <form action="https://formspree.io/f/movpogve" method="POST">
-      <label>Ім'я<br>
-        <input type="text" name="name" required>
-      </label><br>
+      <h1 class="title">
+        <span class="line1">Сучасні</span>
+        <span class="line2">покриття</span>
+      </h1>
 
-      <label>Телефон<br>
-        <input type="tel" name="phone" required>
-      </label><br>
+      <p class="lead">Мікроцемент • Епоксид • Полімер • Бетон Ciré</p>
+      <a href="#contact" class="btn">Замовити консультацію</a>
+    </div>
+  </header>
 
-      <label>Послуга<br>
-        <select name="service">
-          <option>Мікроцемент</option>
-          <option>Наливні / Епоксидні</option>
-          <option>Полімер</option>
-          <option>Бетон Ciré для комерції</option>
-        </select>
-      </label><br>
+  <main class="container">
+    <section id="services" class="cards">
+      <article><h2>Мікроцемент</h2><p>Безшовне, вологостійке, стильне покриття для житла та комерції.</p></article>
+      <article><h2>Наливні (епоксидні, флок)</h2><p>Міцні декоративні підлоги з антиковзанням — кафе, офіси, шоуруми.</p></article>
+      <article><h2>Полімерні покриття</h2><p>Висока міцність для складів, виробництв і паркінгів.</p></article>
+      <article><h2>Бетон Ciré</h2><p>Ідеальний для торгових центрів, павільйонів і промислових зон — зносостійкий і мінімалістичний.</p></article>
+    </section>
 
-      <label>Площа (м²)<br>
-        <input name="area" type="number">
-      </label><br>
+    <section id="gallery">
+      <h2>Галерея робіт</h2>
+      <div class="grid">
+        <img src="assets/463190511_1443040396339179_8907700245724643931_n.jpg" alt="Приклад роботи 1">
+        <img src="assets/473615783_18147920125361447_62412069840918330_n.jpg" alt="Приклад роботи 2">
+        <img src="assets/Snapinsta_app_404920618_18103514179361447_1942269043429428094_n.jpg" alt="Приклад роботи 3">
+      </div>
+    </section>
 
-      <label>Повідомлення<br>
-        <textarea name="message" rows="3"></textarea>
-      </label><br>
+    <section id="about">
+      <h2>Чому обирають нас</h2>
+      <ul>
+        <li>Гарантія якості</li>
+        <li>Досвідчені майстри</li>
+        <li>Працюємо по Одесі та області</li>
+        <li>Доступні ціни та розрахунок по площі</li>
+      </ul>
+    </section>
 
-      <button type="submit" class="btn">Відправити</button>
-    </form>
-  </section>
-</main>
+    <section id="contact">
+      <h2>Зв'язок</h2>
+      <p>Телефон: <a href="tel:+380502022702">+380 50 202 2702</a></p>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>© <span id="year"></span> Сучасні підлоги — Одеса</p>
-  </div>
-</footer>
+      <form action="https://formspree.io/f/movpogve" method="POST">
+        <label>Ім'я<br><input type="text" name="name" required></label><br>
+        <label>Телефон<br><input type="tel" name="phone" required></label><br>
+        <label>Послуга<br>
+          <select name="service">
+            <option>Мікроцемент</option>
+            <option>Наливні / Епоксидні</option>
+            <option>Полімер</option>
+            <option>Бетон Ciré</option>
+          </select>
+        </label><br>
+        <label>Площа (м²)<br><input name="area" type="number"></label><br>
+        <label>Повідомлення<br><textarea name="message" rows="3"></textarea></label><br>
+        <button type="submit" class="btn">Відправити</button>
+      </form>
+    </section>
+  </main>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Сучасні підлоги — Одеса</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

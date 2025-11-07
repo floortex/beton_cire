@@ -212,8 +212,8 @@ form select {
 
 /* Блок "Зв'язок" */
 #contact {
-  color: #1c1c1c; /* темний текст */
-  background-color: #f5f5f5; /* світлий фон */
+  color: #ffffff; /* темний текст */
+  background-color: #434343; /* світлий фон */
 }
 
 /* Для заголовків усередині */

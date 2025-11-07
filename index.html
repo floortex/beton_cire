@@ -7,12 +7,132 @@
   <title>Мікроцемент • Наливні • Полімер • Бетон Ciré — Одеса</title>
   <meta name="description" content="Мікроцемент, епоксидні та полімерні покриття, сірий бетон для комерції. Якісні підлоги в Одесі — консультація, розрахунок, гарантія." />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css" />
+
+  <style>
+    /* ===== БАЗА / СЕТКА ===== */
+    :root{
+      --accent:#b66b4a;
+      --bg:#f0f0f0;
+      --text:#525252;
+      --muted:#666;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:"Montserrat", system-ui, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{max-width:1000px;margin:0 auto;padding:24px}
+
+    /* ===== NAV (фиксированная вверху) ===== */
+    nav{
+      background:rgba(20,20,20,0.9);
+      position:fixed;
+      top:0;left:0;width:100%;z-index:120;
+      display:flex;justify-content:center;align-items:center;
+      padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(6px);
+    }
+    nav ul{list-style:none;display:flex;gap:24px;margin:0;padding:0}
+    nav a{color:#fff;text-decoration:none;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.04em}
+    nav a:hover{color:var(--accent)}
+    .burger{display:none;position:absolute;right:20px;top:12px;width:26px;height:20px;cursor:pointer;flex-direction:column;justify-content:space-between}
+    .burger span{display:block;height:3px;background:#fff;border-radius:2px}
+
+    @media(max-width:768px){
+      nav ul{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:rgba(20,20,20,0.95);padding:18px 0}
+      nav ul.active{display:flex}
+      .burger{display:flex}
+    }
+
+    /* ===== HEADER / HERO (фон из assets/bg.jpg) ===== */
+    /* ПУТЬ ВАЖЕН: assets/bg.jpg (как просила) */
+    .site-header{
+      position:relative;
+      text-align:center;
+      color:#fff;
+      background: url("assets/bg.jpg") center center / cover no-repeat;
+      padding:120px 24px 60px;
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      min-height:56vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .site-header img{width:180px;max-width:80%;height:auto;margin-bottom:20px;display:block}
+
+    /* Заголовок: десктопный вид */
+    .title{
+      font-size:64px;
+      font-weight:600;
+      text-transform:uppercase;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:center;
+      line-height:1;
+      margin:0;
+    }
+    .title span{display:inline-block;opacity:0;transform:translateY(20px);animation:fadeUp .9s forwards}
+    .title .line1{animation-delay:.15s}
+    .title .line2{animation-delay:.45s}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+    .lead{color:rgba(255,255,255,0.95);margin-top:12px;font-weight:500;font-size:18px}
+
+    .btn, a.btn, button.btn{
+      display:inline-block;padding:10px 18px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;border:none;font-weight:600;margin-top:14px;cursor:pointer;
+      transition:background .18s;
+    }
+    .btn:hover{background:#a35f42}
+
+    /* ===== Отступ для main, чтобы не перекрывал навбар (nav фиксирован) ===== */
+    main{margin-top:88px;padding-bottom:40px}
+
+    /* ===== СЕКЦИИ / КАРТОЧКИ / ГАЛЕРЕЯ ===== */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:36px 0}
+    .cards article{background:#fff;padding:16px;border-radius:8px;border:1px solid #eaeaea;transition:transform .18s}
+    .cards article:hover{transform:translateY(-3px)}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:12px}
+    .grid img{width:100%;height:150px;object-fit:cover;border-radius:6px}
+
+    /* about / contact блоки — серый фон (как просила) */
+    #about{color:#f8f8f8;background:#434343;padding:22px;border-radius:8px;margin-top:18px}
+    #contact{color:#fff;background:#434343;padding:22px;border-radius:8px;margin-top:18px}
+    #about h2,#contact h2,#gallery h2{color:#d0b36e;margin-top:0}
+
+    /* форма */
+    form input, form select, form textarea{width:100%;padding:8px;margin:6px 0;border:1px solid #ddd;border-radius:6px;background:#fff;font-family:'Montserrat',sans-serif}
+    form textarea{resize:vertical}
+
+    /* футер */
+    .site-footer{padding:20px 0;text-align:center;color:#777;border-top:1px solid #eaeaea;margin-top:24px;background:#fff;font-size:14px}
+
+    /* ===== Responsive ===== */
+    @media(max-width:900px){.container{padding:18px}.title{font-size:48px}}
+    @media(max-width:700px){
+      .site-header{padding:80px 16px 40px;min-height:auto}
+      .title{flex-direction:column;font-size:36px;gap:6px}
+      .title .line1{opacity:0;transform:translateX(-80%);animation:slideLeft .45s ease-out .12s forwards}
+      .title .line2{opacity:0;transform:translateX(80%);animation:slideRight .45s ease-out .28s forwards}
+      @keyframes slideLeft{to{opacity:1;transform:translateX(0)}}
+      @keyframes slideRight{to{opacity:1;transform:translateX(0)}}
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion:reduce){.title span{animation:none!important;opacity:1;transform:none}}
+  </style>
 </head>
 
 <body>
+  <!-- Навигация -->
   <nav>
-    <div class="burger" onclick="toggleMenu()">
+    <div class="burger" onclick="toggleMenu()" aria-label="Меню">
       <span></span><span></span><span></span>
     </div>
     <ul id="navLinks">
@@ -23,6 +143,7 @@
     </ul>
   </nav>
 
+  <!-- Хедер: фон из assets/bg.jpg -->
   <header class="site-header">
     <div class="container" style="text-align:center;">
       <img src="assets/logo.svg" alt="FloorTex logo">
@@ -93,9 +214,11 @@
   </footer>
 
   <script>
+    // год
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    function toggleMenu() {
+    // бургер
+    function toggleMenu(){
       document.getElementById('navLinks').classList.toggle('active');
     }
   </script>

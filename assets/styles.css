@@ -1,181 +1,135 @@
+/* Шрифт */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
   --accent: #b66b4a;
   --bg: #f7f7f7;
   --text: #525252;
+  --muted: #666;
 }
 
-* {
-  box-sizing: border-box;
-}
-
+/* Базовые сбросы */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
+  margin: 0;
   font-family: 'Montserrat', system-ui, Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
-  margin: 0;
   line-height: 1.5;
 }
 
+/* Контейнер */
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 24px;
 }
 
-/* 🔹 Шапка сайту */
+/* ===== Шапка / Hero ===== */
+/* используем .site-header — точно совпадает с твоим HTML */
 .site-header {
-  background: #fff;
-  padding: 32px 0;
-  border-bottom: 1px solid #e6e6e6;
+  /* картинка + мягкий тёмный оверлей для читабельности */
+  background:
+    linear-gradient(180deg, rgba(34,34,34,0.55), rgba(68,68,68,0.55)),
+    url("bg.jpg") center/cover no-repeat;
+  color: #fff;
+  padding: 120px 0 60px;
   text-align: center;
-}
-
-.site-header h1 {
-  margin: 0;
-  font-size: 36px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-/* 🔹 Анімований заголовок */
-.animated-title {
-  position: relative;
-  font-size: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  min-height: 60vh;
   display: flex;
+  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  height: 60px;
-  margin-bottom: 8px;
 }
 
-.animated-title .word {
-  position: relative;
+/* логотип в шапке */
+.site-header img {
+  width: 180px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+}
+
+/* заголовок */
+.title {
+  font-weight: 600;
+  font-size: 64px;
+  color: #fff;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1;
+}
+
+/* анимация появления заголовка (общая) */
+.title span {
+  display: inline-block;
   opacity: 0;
-  animation: slideIn 1s forwards;
+  transform: translateY(20px);
+  animation: fadeUp 0.9s forwards;
 }
+.title .line1 { animation-delay: 0.15s; }
+.title .line2 { animation-delay: 0.5s; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-.animated-title .left {
-  transform: translateX(-100%);
-  margin-right: 8px;
-  animation-delay: 0.2s;
-}
-
-.animated-title .right {
-  transform: translateX(100%);
-  animation-delay: 0.4s;
-}
-
-/* ======== Mobile title animation only ======== */
-@media (max-width: 700px) {
-  .site-header h1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-size: 36px; /* або підбери, щоб не рвало в webview */
-    line-height: 1.1;
-  }
-
-  .site-header h1 span {
-    display: block;
-    opacity: 0;
-    will-change: transform, opacity;
-  }
-
-  .site-header h1 span:first-child {
-    transform: translateX(-80%);
-    animation: slideInLeft 0.5s ease-out 0.1s forwards;
-  }
-
-  .site-header h1 span:last-child {
-    transform: translateX(80%);
-    animation: slideInRight 0.5s ease-out 0.2s forwards;
-  }
-
-  @keyframes slideInLeft {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideInRight {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-}
-
-@keyframes slideIn {
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* трохи менший текст для підзаголовку */
+/* подзаголовок */
 .lead {
+  color: rgba(255,255,255,0.9);
+  margin-top: 12px;
   font-weight: 500;
   font-size: 18px;
-  margin-top: 12px;
-  color: #555;
 }
 
-.lead {
-  color: #666;
-  margin-top: 8px;
-}
-
-/* 🔹 Кнопки */
-.btn {
+/* ===== Кнопки ===== */
+.btn,
+a.btn,
+button.btn {
   display: inline-block;
-  margin-top: 12px;
   padding: 10px 18px;
   background: var(--accent);
   color: #fff;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s ease-in-out;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.18s ease;
+  margin-top: 14px;
 }
+button.btn { -webkit-appearance: none; appearance: none; }
+.btn:hover { background: #a35f42; }
+.btn:focus { outline: 2px solid rgba(182,107,74,0.18); outline-offset: 2px; }
 
-.btn:hover {
-  background: #a35f42;
-}
-
-/* 🔹 Карточки */
+/* ===== Карточки (services) ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
-  margin-top: 24px;
+  margin: 40px 0 24px;
 }
-
 .cards article {
   background: #fff;
   padding: 16px;
   border-radius: 8px;
   border: 1px solid #eaeaea;
-  transition: transform 0.2s ease;
+  transition: transform 0.18s ease;
 }
+.cards article:hover { transform: translateY(-3px); }
 
-.cards article:hover {
-  transform: translateY(-3px);
-}
-
-/* 🔹 Галерея */
+/* ===== Галерея ===== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 8px;
   margin-top: 12px;
 }
-
 .grid img {
   width: 100%;
   height: 150px;
@@ -183,18 +137,21 @@ body {
   border-radius: 6px;
 }
 
-/* 🔹 Форми */
+/* ===== Формы ===== */
 form input,
-form select {
+form select,
+form textarea {
   width: 100%;
   padding: 8px;
   margin: 6px 0;
   border: 1px solid #ddd;
   border-radius: 6px;
   font-family: 'Montserrat', sans-serif;
+  background: #fff;
 }
+form textarea { resize: vertical; }
 
-/* 🔹 Футер */
+/* ===== Футер ===== */
 .site-footer {
   padding: 20px 0;
   text-align: center;
@@ -204,71 +161,69 @@ form select {
   background: #fff;
   font-size: 14px;
 }
-/* Блок "Чому обирають нас" */
+
+/* ===== About / Contact — отдельные стили ===== */
 #about {
-  color: #f8f8f8; /* або інший світлий відтінок */
-  background-color: #434343; /* темний фон для контрасту */
-}
-
-/* Блок "Зв'язок" */
-#contact {
-  color: #ffffff; /* темний текст */
-  background-color: #434343; /* світлий фон */
-}
-
-/* Для заголовків усередині */
-#about h2, #contact h2 {
-  color: #d0b36e; /* акцентний колір, наприклад золото або бетонний */
-}
-/* Уніфікуємо стиль для кнопок-посилань і кнопок форм */
-.btn,
-a.btn,
-button.btn {
-  display: inline-block;
-  padding: 10px 16px;
-  background: var(--accent);
-  color: #fff;
+  color: #f8f8f8;
+  background-color: #434343;
+  padding: 28px;
   border-radius: 8px;
-  text-decoration: none;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  line-height: 1;
-  font-family: 'Montserrat', sans-serif;
-  transition: background 0.18s ease;
 }
-
-/* Скидаємо дефолтні стилі браузера для button */
-button.btn {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-/* Ховер/фокус */
-.btn:hover,
-button.btn:hover,
-a.btn:hover {
-  background: #a35f42; /* трохи темніший */
-}
-
-.btn:focus,
-button.btn:focus,
-a.btn:focus {
-  outline: 2px solid rgba(182,107,74,0.18);
-  outline-offset: 2px;
-}
-#gallery h2 {
-  color: #d0b36e;
-}
-#contact p,
-#contact a {
+#contact {
   color: #fff;
+  background-color: #434343;
+  padding: 28px;
+  border-radius: 8px;
 }
-header {
-  background-image: url("bg.jpg"); /* шлях до картинки */
-  background-size: cover; /* картинка розтягується на весь блок */
-  background-position: center; /* центрування */
-  background-repeat: no-repeat; /* не повторюється */
-  color: white; /* щоб текст залишався видимим */
+#about h2,
+#contact h2 {
+  color: #d0b36e;
+  margin-top: 0;
 }
+
+/* Цвет для заголовка галереи */
+#gallery h2 { color: #d0b36e; }
+
+/* Текст и ссылки в контактах */
+#contact p,
+#contact a { color: #fff; }
+
+/* ===== Responsive — мобильные корректировки ===== */
+@media (max-width: 900px) {
+  .container { padding: 18px; }
+  .title { font-size: 48px; }
+}
+@media (max-width: 700px) {
+  .site-header { padding: 80px 18px 40px; min-height: auto; }
+  .title {
+    flex-direction: column;
+    font-size: 36px;
+    gap: 6px;
+  }
+
+  /* мобильная анимация: выезд слева/справа */
+  .title .line1 {
+    opacity: 0;
+    transform: translateX(-80%);
+    animation: slideLeft .45s ease-out .12s forwards;
+  }
+  .title .line2 {
+    opacity: 0;
+    transform: translateX(80%);
+    animation: slideRight .45s ease-out .28s forwards;
+  }
+  @keyframes slideLeft { to { opacity: 1; transform: translateX(0); } }
+  @keyframes slideRight { to { opacity: 1; transform: translateX(0); } }
+}
+
+/* Accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .title span, .title .line1, .title .line2 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Небольшие вспомогательные правила */
+a { color: inherit; }

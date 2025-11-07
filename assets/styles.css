@@ -31,7 +31,7 @@ body {
   position: relative;
   text-align: center;
   color: white;
-  background-image: url("bg.jpg"); /* шлях до картинки */
+  background-image: url("assets/bg.jpg"); /* шлях до картинки */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

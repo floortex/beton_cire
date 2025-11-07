@@ -261,3 +261,7 @@ a.btn:focus {
 #gallery h2 {
   color: #d0b36e;
 }
+#contact p,
+#contact a {
+  color: #fff;
+}

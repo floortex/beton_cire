@@ -266,7 +266,7 @@ a.btn:focus {
   color: #fff;
 }
 header {
-  background-image: url("assets/bg.jpg"); /* шлях до картинки */
+  background-image: url("bg.jpg"); /* шлях до картинки */
   background-size: cover; /* картинка розтягується на весь блок */
   background-position: center; /* центрування */
   background-repeat: no-repeat; /* не повторюється */

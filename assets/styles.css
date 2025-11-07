@@ -6,15 +6,11 @@
   --text: #525252;
 }
 
-/* Скидання базових стилів */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* Обнуление */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Montserrat', system-ui, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.5;
@@ -26,16 +22,15 @@ body {
   padding: 24px;
 }
 
-/* 🔹 Хедер */
+/* 🔹 Фон и шапка */
 .site-header {
   position: relative;
   text-align: center;
   color: white;
-  background-image: url("assets/bg.jpg"); /* шлях до картинки */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 80px 20px;
+  background: url("./bg.jpg") center center / cover no-repeat;
+  /* если не работает — попробуй "../assets/bg.jpg" */
+  padding: 120px 20px;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .site-header img {
@@ -44,19 +39,29 @@ body {
   margin-bottom: 16px;
 }
 
-.site-header h1 {
-  font-size: 42px;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: 0.5px;
+.title {
+  font-size: 64px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
-.site-header .lead {
-  font-size: 18px;
-  font-weight: 500;
-  margin: 10px 0 20px;
-  color: #f0f0f0;
+.title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s forwards;
 }
+.title .line1 { animation-delay: 0.2s; }
+.title .line2 { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lead { color: #ddd; margin: 8px 0 20px; }
 
 .btn {
   display: inline-block;
@@ -68,128 +73,4 @@ body {
   font-weight: 600;
   transition: background 0.2s ease-in-out;
 }
-
-.btn:hover {
-  background: #a35f42;
-}
-
-/* 🔹 Mobile animation */
-@media (max-width: 700px) {
-  .site-header h1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 34px;
-    line-height: 1.1;
-  }
-
-  .site-header h1 span {
-    opacity: 0;
-    display: block;
-    will-change: transform, opacity;
-  }
-
-  .site-header h1 span:first-child {
-    transform: translateX(-80%);
-    animation: slideInLeft 0.6s ease-out 0.1s forwards;
-  }
-
-  .site-header h1 span:last-child {
-    transform: translateX(80%);
-    animation: slideInRight 0.6s ease-out 0.2s forwards;
-  }
-
-  @keyframes slideInLeft {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideInRight {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-}
-
-/* 🔹 Секції */
-#about {
-  color: #f8f8f8;
-  background-color: #434343;
-}
-
-#contact {
-  color: #ffffff;
-  background-color: #434343;
-}
-
-#about h2,
-#contact h2,
-#gallery h2 {
-  color: #d0b36e;
-}
-
-#contact p,
-#contact a {
-  color: #fff;
-  text-decoration: none;
-}
-
-/* 🔹 Карточки */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 24px;
-}
-
-.cards article {
-  background: #fff;
-  padding: 16px;
-  border-radius: 8px;
-  border: 1px solid #eaeaea;
-  transition: transform 0.2s ease;
-}
-
-.cards article:hover {
-  transform: translateY(-3px);
-}
-
-/* 🔹 Галерея */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.grid img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-/* 🔹 Форма */
-form input,
-form select {
-  width: 100%;
-  padding: 8px;
-  margin: 6px 0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* 🔹 Футер */
-.site-footer {
-  padding: 20px 0;
-  text-align: center;
-  color: #777;
-  border-top: 1px solid #eaeaea;
-  margin-top: 24px;
-  background: #fff;
-  font-size: 14px;
-}
+.btn:hover { background: #a35f42; }

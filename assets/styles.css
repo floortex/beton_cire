@@ -258,12 +258,3 @@ a.btn:focus {
   outline: 2px solid rgba(182,107,74,0.18);
   outline-offset: 2px;
 }
-section#gallery,
-section#about {
-  background-color: #222; /* наприклад, темний фон */
-}
-
-section#gallery h2,
-section#about h2 {
-  color: #fff;
-}

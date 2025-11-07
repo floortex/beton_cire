@@ -265,3 +265,10 @@ a.btn:focus {
 #contact a {
   color: #fff;
 }
+header {
+  background-image: url("assets/your-image.png"); /* шлях до картинки */
+  background-size: cover; /* картинка розтягується на весь блок */
+  background-position: center; /* центрування */
+  background-repeat: no-repeat; /* не повторюється */
+  color: white; /* щоб текст залишався видимим */
+}

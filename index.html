@@ -27,27 +27,6 @@
     }
     .container{max-width:1000px;margin:0 auto;padding:24px}
 
-    /* ===== NAV (фиксированная вверху) ===== */
-    nav{
-      background:rgba(20,20,20,0.9);
-      position:fixed;
-      top:0;left:0;width:100%;z-index:120;
-      display:flex;justify-content:center;align-items:center;
-      padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);
-      backdrop-filter: blur(6px);
-    }
-    nav ul{list-style:none;display:flex;gap:24px;margin:0;padding:0}
-    nav a{color:#fff;text-decoration:none;font-weight:500;font-size:14px;text-transform:uppercase;letter-spacing:.04em}
-    nav a:hover{color:var(--accent)}
-    .burger{display:none;position:absolute;right:20px;top:12px;width:26px;height:20px;cursor:pointer;flex-direction:column;justify-content:space-between}
-    .burger span{display:block;height:3px;background:#fff;border-radius:2px}
-
-    @media(max-width:768px){
-      nav ul{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:rgba(20,20,20,0.95);padding:18px 0}
-      nav ul.active{display:flex}
-      .burger{display:flex}
-    }
-
     /* ===== HEADER / HERO (фон из assets/bg.jpg) ===== */
     /* ПУТЬ ВАЖЕН: assets/bg.jpg (как просила) */
     .site-header{
